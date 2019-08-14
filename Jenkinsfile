@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-		sh './configure --prefix=/etc/nginx \ 
+		sh """./configure --prefix=/etc/nginx \ 
             --sbin-path=/usr/sbin/nginx \ 
             --modules-path=/usr/lib/nginx/modules \ 
             --conf-path=/etc/nginx/nginx.conf \
@@ -60,7 +60,7 @@ pipeline {
             --with-zlib=../zlib-1.2.11 \
             --with-openssl=../openssl-1.1.0h \
             --with-openssl-opt=no-nextprotoneg \
-            --with-debug'
+            --with-debug"""
                 sh 'make' 
             }
         }
